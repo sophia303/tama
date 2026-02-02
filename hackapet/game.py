@@ -26,7 +26,11 @@ text_area = label.Label(terminalio.FONT, text=text, color=0xFFFFFF, x=10, y=64)
 splash.append(text_area)
 
 def startGame():
-    playButton = pygame.Rect(20, 30, 20, 10)
+    playerBitmap = displayio.Bitmap (128, 128, 1)
+    playerPalette = displayio.Palette(1)
+    playerPalette[0] = 0x0FFFF
+    playerTile = displayio.TileGrid(playerBitmap, pixel_shader=playerPalette, x=0, y=0)
+
 
 def draw():
     if gameState == "start":
